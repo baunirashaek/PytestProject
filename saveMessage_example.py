@@ -8,3 +8,7 @@ saveNewLine(encryptedText)
 encryptedText = encryptMessage(user, password, "Minha segunda mensagem secreta!")
 saveNewLine(encryptedText)
 
+# initializeWrite()
+initializeRead()
+
+encryptMessage("desgraçadO", "123456", "revoluçao permanente")
