@@ -1,44 +1,83 @@
 def checarLogin(username):
-
-    if not username[0].isupper():
-        print("O nome de usuário deve ter letra maiúscula!")
-        return None
-    if any(not c.isalnum() for c in username):
-        print("Nome de usuário não pode ter caracteres especiais!")
-        return None
-    if len(username) > 30:
-        print("Nome de usuário deve ter até 30 caracteres!")
-        return None
+    if checarLenMin(username):
+        if checarUpper(username) and checarCarSpec(username) and checarLen(username):
+            return username
+        else:
+            return None
     else:
-        return username
+        return None
 
+def checarUpper(username):
+    if username[0].isupper():
+        return True
+    else:
+        return False
+
+def checarCarSpec(username):
+    if any(not c.isalnum() for c in username):
+        return False
+    else:
+        return True
+
+def checarLen(username):
+    if len(username) < 31:
+        return True
+    else:
+        return False
+
+def checarLenMin(username):
+    if len(username) > 0:
+        return True
+    else:
+        return False
 
 def checarSenha(senha):
-    num = ['1','2','3','4','5','6','7','8','9','0']
-    if len(senha) < 10:
-        print("A senha deve ter pelo menos 10 caracteres!")
-        return None
-    if not any(not c.isalnum() for c in senha):
-        print("Precisa ter pelo menos um caractere especial!")
-        return None
-    if not any(i.isdigit() for i in senha):
-        print("A senha precisa ter pelo menos um número!")
-        return None
-    if not any(char.isupper() for char in senha):
-        print("A senha deve ter pelo menos UMA letra MAIÚSCULA!")
-        return None
-    if not any(char.islower() for char in senha):
-        print("A senha deve ter pelo menos UMA letra MINÚSCULA!")
-        return None
-    else:
+    if checarLenSenha(senha) and checarCarSpecSenha(senha) and checarNumSenha(senha) and checarAnyUpperSenha(senha) and checarAnyLowerSenha(senha):
         return senha
+    else:
+        return None
+
+def checarLenSenha(senha):
+    if len(senha) > 9:
+        return True
+    else:
+        return False
+
+def checarCarSpecSenha(senha):
+    if any(not c.isalnum() for c in senha):
+        return True
+    else:
+        return False
+
+def checarNumSenha(senha):
+    if any(i.isdigit() for i in senha):
+        return True
+    else:
+        return False
+
+def checarAnyUpperSenha(senha):
+    if any(char.isupper() for char in senha):
+        return True
+    else:
+        return False
+
+def checarAnyLowerSenha(senha):
+    if any(char.islower() for char in senha):
+        return True
+    else:
+        return False
 
 def checarMensagem(mensagem):
-    if len(mensagem) > 70:
-        print(f"A mensagem deve ter no máximo 70 caracteres. Você digitou {len(mensagem)} caracteres.")
-        return None
-    else:
+    if checarLenMensagem(mensagem):
         return mensagem
+    else:
+        return None
+
+def checarLenMensagem(mensagem):
+    if len(mensagem) < 71:
+        return True
+    else:
+        return False
 
 def pedirLogin():
     username = input("Insira o seu username: ")
