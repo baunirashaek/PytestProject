@@ -1,3 +1,17 @@
+from cryptographyFramework import *
+
+
+def init_encrypt(username, senha, mensagem):
+    u = checarLogin(username)
+    s = checarSenha(senha)
+    m = checarMensagem(mensagem)
+    if u != None and s != None and m != None:
+        encryptMessage(username, senha, mensagem)
+        return True
+    else:
+        return False 
+
+
 def checarLogin(username):
     if checarLenMin(username):
         if checarUpper(username) and checarCarSpec(username) and checarLen(username):

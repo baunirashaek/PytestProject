@@ -1,17 +1,19 @@
 from func import *
 
-def test_username():
+def test_username_upper():
     assert False == checarUpper("jorge")
     assert True == checarUpper("Jorge")
 
+def test_useranme_car_spec():
     assert False == checarCarSpec("!Jorge")
     assert True == checarCarSpec("Jorge")
 
+def test_username_len():
     assert True == checarLen("Jorge")
     assert False == checarLen("FKLDGSFUIODYGUIOSDFHGISDYGBOSDFHGBJPFODXHOFGUHÇDFGKOCHLGJHKLDFTUYHBRDXNGOJKHFGNHKLFTJYHNKLFJCPBOJTKLH")
 
-
+def test_username_final():
     assert "Jorge" == checarLogin("Jorge")
-    assert None == checarLogin("idiota123!")
-    assert "Inferno" == checarLogin("Inferno")
-    assert None == checarLogin("idiota")
+    assert None == checarLogin("ahsjdr123!")
+    assert "Gabriel" == checarLogin("Gabriel")
+    assert None == checarLogin("ahsjdr")

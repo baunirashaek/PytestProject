@@ -1,26 +1,31 @@
 from func import *
 
-def test_senhas():
-    assert True == checarLenSenha("Queromematar")
+def test_senhas_len():
+    assert True == checarLenSenha("947811934159")
     assert False == checarLenSenha("odfh")
 
-    assert True ==  checarCarSpecSenha("InfernoDesgraça!")
-    assert True ==  checarCarSpecSenha("Inf ernoDesgraça")
+def test_senhas_car_spec():                    
+    assert True ==  checarCarSpecSenha("GabrielKetterma!")
+    assert True ==  checarCarSpecSenha("Gab rielKetterma")
     assert False ==  checarCarSpecSenha("ifudgsisodfhiudsgfisg")
 
-    assert True == checarNumSenha("InfernoDesgraça123!")
-    assert False == checarNumSenha("InfernoDesgraça!")
+def test_senhas_num():
+    assert True == checarNumSenha("GabrielKetterma123!")
+    assert False == checarNumSenha("GabrielKetterma!")
 
-    assert True == checarAnyUpperSenha("InfernoDesgraça123!")
-    assert False == checarAnyUpperSenha("infernodesgraça123!")
+def test_senhas_any_upper():
+    assert True == checarAnyUpperSenha("GabrielKetterma123!")
+    assert False == checarAnyUpperSenha("gabrielketterma123!")
 
-    assert True == checarAnyLowerSenha("InfernoDesgraça123!")
-    assert False == checarAnyLowerSenha("INFERNODESGRAÇA123!")
+def test_senhas_any_lower():
+    assert True == checarAnyLowerSenha("GabrielKetterma123!")
+    assert False == checarAnyLowerSenha("GABRIELKETTERMA123!")
 
-    assert "InfernoDesgraça123!" == checarSenha("InfernoDesgraça123!")
+def test_senhas_final():
+    assert "GabrielKetterma123!" == checarSenha("GabrielKetterma123!")
     assert None == checarSenha("INFERNODESGRAÇA123!")
     assert None == checarSenha("infernodesgraça123!")
-    assert "Inferno Desgraça123" == checarSenha("Inferno Desgraça123")
-    assert None == checarSenha("Inferno1!")
-    assert None == checarSenha("infernodesgraça")
-    assert None == checarSenha("INFERNODESGRAÇA")
+    assert "Gabriel Ketterma123" == checarSenha("Gabriel Ketterma123")
+    assert None == checarSenha("Gabriel1!")
+    assert None == checarSenha("gabrielketterma")
+    assert None == checarSenha("GABRIELKETTERMA")
